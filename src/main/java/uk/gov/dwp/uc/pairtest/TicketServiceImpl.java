@@ -80,13 +80,10 @@ public class TicketServiceImpl implements TicketService {
     }
 
     private static int getTicketPrice(TicketTypeRequest.Type ticketType) {
-        switch (ticketType) {
-            case ADULT:
-                return 20;
-            case CHILD:
-                return 10;
-            default:
-                return 0;
-        }
+        return switch (ticketType) {
+            case ADULT -> 20;
+            case CHILD -> 10;
+            default -> 0;
+        };
     }
 }
